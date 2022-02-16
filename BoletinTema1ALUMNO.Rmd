@@ -241,8 +241,9 @@ summary(df_Ch)
 
 ```{r}
 
-
-
+qqPlot(cabbages$HeadWt)
+qqPlot(cabbages$VitC)
+#Como en ambas representaciones los datos se encuentran dentro de als lineas azules, se puede decir que si que verifican esta condicion.
 
 
 ```
