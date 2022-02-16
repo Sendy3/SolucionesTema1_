@@ -11,15 +11,15 @@ output:
     toc: no
     toc_depth: 3
     number_sections: yes
-  html_notebook:
-    echo: yes
-    number_sections: yes
-    toc: yes
-  html_document:
-    echo: yes
-    number_sections: yes
-    theme: lumen
-    toc: yes
+  # html_notebook:
+  #   echo: yes
+  #   number_sections: yes
+  #   toc: yes
+  # html_document:
+  #   echo: yes
+  #   number_sections: yes
+  #   theme: lumen
+  #   toc: yes
 language:
   label:
     fig: 'Figura '
@@ -92,20 +92,31 @@ b.  Usa las funciones **dim, head, tail, str** para una primera visión de los c
 c.  Muestra los nombres de las filas y las columnas (**rownames**, **colnames**)
 
 ```{r}
+#primero establecemos las variables sobre cada uno de los conjuntos de datos que nos piden en el enunciado
+df_mammals <- mammals
+df_animals2<- Animals2
+
+#Buscamos las caracteristicas sobre el conjunto mammals:
+summarise(df_mammals)
+dim(df_mammals)
+head(df_mammals)
+head(df_mammals, n=3)
+tail(df_mammals)
+str(df_mammals)
+#Mostramos los nombres de las filas y columnas:
+rownames(df_mammals)
+colnames(df_mammals)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+#Buscamos las caracteristicas sobre el conjunto Animals2:
+summarise(df_animals2)
+dim(df_animals2)
+head(df_animals2)
+tail(df_animals2)
+str(df_animals2)
+#Mostramos los nombres de las filas y columnas:
+rownames(df_animals2)
+colnames(df_animals2)
 
 
 
@@ -115,11 +126,9 @@ d.  Usa la función **intersect** y almacena en la variable *commonAnimals* los 
 
 ```{r}
 
-
-
-
-
-
+commonAnimals <- intersect(df_mammals, df_animals2)
+#Nos dice el nombre de cada fila de la variable nueva commonAnimals que son los comunes en ambos dataframes
+rownames(commonAnimals)
 ```
 
 e.  Usa **setdiff** para averiguar qué animales no están en ambos conjuntos. ¿Cuántos son ?. ¿Qué tipo de animales son?
